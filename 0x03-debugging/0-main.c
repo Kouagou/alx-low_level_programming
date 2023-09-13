@@ -1,19 +1,16 @@
-#include <stdio.h>
-#include <stdlib.h>
+#include "main.h"
 
 /**
- * positive_or_negative - Print whether the number n is positive or negative.
- * @n: The number to be checked
- *
- * Return: Print if the number is negative or positive.
- */
-void positive_or_negative(int n)
-{
+* main - tests function that prints if integer is positive or negative
+* Return: 0
+*/
 
-	if (n > 0)
-		printf("%d is positive\n", n);
-	else if (n == 0)
-		printf("%d is zero\n", n);
-	else
-		printf("%d is negative\n", n);
+int main(void)
+{
+        int i;
+
+        i = 0;
+        positive_or_negative(i);
+
+        return (0);
 }
