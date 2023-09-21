@@ -30,8 +30,11 @@ char *cap_string(char *str)
 
 		if (num == 1 && isalpha(str[j + 1]) && islower(str[j + 1]))
 		{
-			str[j + 1] -= 32; 
+			str[j + 1] -= 32;
 		}
+
+		if (str[j] == 9)
+			str[j] += 23; 
 	}
 	return (str);
 }
