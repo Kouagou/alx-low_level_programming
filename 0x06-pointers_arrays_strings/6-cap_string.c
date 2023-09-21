@@ -33,8 +33,10 @@ char *cap_string(char *str)
 			str[j + 1] -= 32;
 		}
 
-		if (str[j] == 9)
-			str[j] += 23; 
+		/*
+		* if (str[j] == 9)
+		*	str[j] += 23;
+		*/
 	}
 	return (str);
 }
