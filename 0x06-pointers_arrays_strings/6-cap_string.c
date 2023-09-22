@@ -1,42 +1,39 @@
 #include "main.h"
-#include <string.h>
-#include <ctype.h>
 
 /**
- * cap_string - A function that capitalizes all words of a string.
- * @str: the string to be capitalized
- *
- * Return: return the string after capitalized all his words.
+ * cap_string - capitalize all words of a string
+ * @str: string
+ * Return: `str`
  */
+
 char *cap_string(char *str)
 {
-	int i, j, num, nLength, sLength;
-	char seps[] = {32, 9, 10, 44, 59, 46, 63, 33, 34, 40, 41, 123, 125};
+	int i, c;
+	int trigger;
+	char nots[] = ",;.!?(){}\n\t\" ";
 
-	nLength = strlen(str);
-	sLength = sizeof(seps) / sizeof(char);
-
-	for (j = 0; j < nLength; j++)
+	for (i = 0, trigger = 0; str[i] != '\0'; i++)
 	{
-		num = 0;
-		for (i = 0; i < sLength; i++)
+		if (str[0] > 96 && str[0] < 123)
+			trigger = 1;
+		for (c = 0; nots[c] != '\0'; c++)
 		{
-			if (str[j] == seps[i])
+			if (nots[c] == str[i])
+				trigger = 1;
+		}
+
+		if (trigger)
+		{
+			if (str[i] > 96 && str[i] < 123)
 			{
-				num = 1;
-				break;
+				str[i] -= 32;
+				trigger = 0;
 			}
+			else if (str[i] > 64 && str[i] < 91)
+				trigger = 0;
+			else if (str[i] > 47 && str[i] < 58)
+				trigger = 0;
 		}
-
-		if (num == 1 && isalpha(str[j + 1]) && islower(str[j + 1]))
-		{
-			str[j + 1] -= 32;
-		}
-
-		/*
-		* if (str[j] == 9)
-		*	str[j] += 23;
-		*/
 	}
 	return (str);
 }
