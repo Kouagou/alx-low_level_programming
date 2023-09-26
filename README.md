@@ -1,1 +1,1 @@
-Solutions for C - Even more pointers, arrays and strings projects
+This is for projects on C Programming for my ALX SE Program
