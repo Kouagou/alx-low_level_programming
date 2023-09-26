@@ -11,5 +11,5 @@
  */
 unsigned int _strspn(char *s, char *accept)
 {
-	return (strchr(s, c));
+	return (strspn(s, accept));
 }
