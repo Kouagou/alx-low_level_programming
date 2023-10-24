@@ -1,7 +1,8 @@
 #include "lists.h"
 
 /**
- * listint_len - A function that counts the number of nodes in a listint_t list.
+ * listint_len - A function that counts
+ * the number of nodes in a listint_t list.
  * @h: head of the list
  *
  * Return: the number of elements
