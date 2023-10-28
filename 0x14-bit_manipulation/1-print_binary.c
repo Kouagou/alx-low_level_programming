@@ -6,15 +6,25 @@
  */
 void print_binary(unsigned long int n)
 {
-	int bit_position = sizeof(n) * 8 - 1;
-	unsigned long int one = 1;
+	unsigned long int quotient = 1, check, i;
+	char label;
 
-	while (bit_position >= 0)
+	label = 0;
+	for (i = 1; i <= (sizeof(unsigned long int) * 8 - 1); i++)
+		quotient *= 2;
+
+	while (quotient != 0)
 	{
-		unsigned long int bit = (n >> bit_position) & one;
-
-		putchar(bit + '0');
-		bit_position--;
+		check = n & quotient;
+		if (check == quotient)
+		{
+			label = 1;
+			_putchar('1');
+		}
+		else if (label == 1 || quotient == 1)
+		{
+			_putchar('0');
+		}
+		quotient >>= 1;
 	}
-	putchar('\n');
 }
