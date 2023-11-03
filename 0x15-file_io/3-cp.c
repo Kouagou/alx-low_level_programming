@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <fcntl.h>
 #include <unistd.h>
-#include <sys/fd_file.h>
+#include <sys/stat.h>
 #include <sys/types.h>
 
 void check_file(int fd_file, int file_descriptor, char *filename, char mode);
