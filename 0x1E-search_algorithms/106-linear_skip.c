@@ -2,14 +2,13 @@
 
 
 /**
- * linear_skip - searches for a value conatined in a skip list; assumes a
- * list with sorted values and a single skip layer with nodes at every index
- * which is a multiple of the square root of the size of the list
+ * linear_skip - A function that searches for a value in a sorted
+ * skip list of integers.
+ * @list: The pointer to the head of the skip list to traverse.
+ * @value: The value to search for.
  *
- * @list: pointer to the head of the skip list to traverse
- * @value: value to search for
- * Return: pointer on the first node where value is located, or NULL if list
- * is NULL or value not found
+ * Return: Returns a pointer on the first node where value is located,
+ * or NULL if list is NULL or value not found.
  */
 skiplist_t *linear_skip(skiplist_t *list, int value)
 {
@@ -28,7 +27,6 @@ skiplist_t *linear_skip(skiplist_t *list, int value)
 	stop = temp;
 	while (stop && stop->next != stop->express)
 		stop = stop->next;
-	/* value potentially lies between two express nodes */
 	if (temp->express)
 	{
 		printf("Value checked at index [%lu] = [%i]\n",
@@ -36,7 +34,6 @@ skiplist_t *linear_skip(skiplist_t *list, int value)
 		printf("Value found between indexes [%lu] and [%lu]\n",
 		       temp->index, temp->express->index);
 	}
-	/* value is greater than last express node, potentially out of list */
 	else
 		printf("Value found between indexes [%lu] and [%lu]\n",
 		       temp->index, stop->index);
